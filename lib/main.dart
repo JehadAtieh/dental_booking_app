@@ -2,7 +2,7 @@ import 'package:dental_booking_app/view/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp()); // ✅ استدعاء التطبيق الصحيح
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginPage(), // ✅ صفحة تسجيل الدخول
+      home: LoginPage(),
     );
   }
 }

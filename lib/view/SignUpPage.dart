@@ -28,7 +28,6 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 24),
 
-              // اختيار نوع المستخدم
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -48,7 +47,6 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 16),
 
-              // الاسم الكامل
               TextField(
                 decoration: InputDecoration(
                   labelText: 'الاسم الكامل',
@@ -60,7 +58,6 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 16),
 
-              // البريد الإلكتروني
               TextField(
                 decoration: InputDecoration(
                   labelText: 'البريد الإلكتروني',
@@ -72,7 +69,6 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 16),
 
-              // كلمة المرور
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
@@ -85,7 +81,6 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 24),
 
-              // زر إنشاء الحساب
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -95,7 +90,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),
                   onPressed: () {
-                    // منطق إنشاء الحساب هنا
                   },
                   child: const Text('إنشاء حساب', style: TextStyle(fontSize: 18)),
                 ),
@@ -103,10 +97,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
               const SizedBox(height: 12),
 
-              // العودة لتسجيل الدخول
               TextButton(
                 onPressed: () {
-                  Navigator.pop(context); // يرجع لصفحة تسجيل الدخول
+                  Navigator.pop(context);
                 },
                 child: const Text('لديك حساب؟ سجل الدخول'),
               )

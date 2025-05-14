@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'SignUpPage.dart';
+import 'clinics_page.dart';
+import 'doctor_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,6 +12,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String userType = 'مريض'; // مريض أو دكتور
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 24),
 
-              // نوع المستخدم
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -50,8 +52,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 16),
 
-              // الإيميل
               TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                   labelText: 'البريد الإلكتروني',
                   prefixIcon: const Icon(Icons.email),
@@ -62,8 +64,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 16),
 
-              // كلمة المرور
+
               TextField(
+                controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'كلمة المرور',
@@ -75,7 +78,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 24),
 
-              // زر الدخول
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -85,7 +87,17 @@ class _LoginPageState extends State<LoginPage> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),
                   onPressed: () {
-                    // معالجة الدخول
+                    if (userType == 'مريض') {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ClinicsPage()),
+                      );
+                    } else if (userType == 'دكتور') {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const DoctorPage()),
+                      );
+                    }
                   },
                   child: const Text('دخول', style: TextStyle(fontSize: 18)),
                 ),
@@ -93,15 +105,12 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 12),
 
-              // رابط إنشاء حساب
               TextButton(
                 onPressed: () {
-                  // داخل onPressed في TextButton لإنشاء حساب جديد
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>  SignUpPage()),
+                    MaterialPageRoute(builder: (context) => const SignUpPage()),
                   );
-
                 },
                 child: const Text('ليس لديك حساب؟ أنشئ حساب الآن'),
               )
